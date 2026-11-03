@@ -105,6 +105,8 @@ All eight systems were executed across three independent replicates (`r1`, `r2`,
 | `DOR_TAN_EtOH` | (−)-TAN-67 | **Yes** | $3 \times 1.0\text{ }\mu\text{s}$ | $3.0\text{ }\mu\text{s}$ |
 | **Total** | | | **24 trajectories** | **$24.0\text{ }\mu\text{s}$** |
 
+### Velocity Random Seeds
+
 Initial atomic velocities for replicas r1, r2, and r3 were independently assigned from a Maxwell–Boltzmann distribution at 303.15 K using pseudorandom generation (gen-vel = yes, gen-seed = -1) in GROMACS to ensure statistically independent trajectories.
 
 ## Molecular Dynamics Protocol
