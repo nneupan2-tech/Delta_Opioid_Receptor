@@ -4,19 +4,12 @@
 [![License: CC BY 4.0](https://img.shields.io/badge/Data_License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![GROMACS](https://img.shields.io/badge/GROMACS-2025.2-blue.svg)](https://www.gromacs.org/)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
-<!-- Uncomment post-publication / Zenodo upload:
-[![Data DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
-[![Paper](https://img.shields.io/badge/JCIM-10.1021%2Facs.jcim.XXXXXXX-blue)](https://doi.org/10.1021/acs.jcim.XXXXXXX)
--->
 
 This repository contains input structures, force-field parameters, execution protocols, analysis pipelines, and Markov State Modeling (MSM) workflows accompanying:
 
-> **[TODO: Full Paper Title]**  
-> *[TODO: Authors: e.g., Jane Doe, John Smith, ...]*  
-> *Journal of Chemical Information and Modeling* (Submitted, 2026). DOI: [TODO: 10.1021/acs.jcim.XXXXXXX]  
-> **Preprint:** [TODO: ChemRxiv DOI / link]
-
----
+> **Delta Opioid Receptor (DOR) Dynamics with Mitragynine, 7-Hydroxymitragynine and (−)-TAN-67 under Ethanol Co-solvent Exposure**  
+> *Manuscript in preparation (2026).*  
+> *(Preprint and data repository links will be updated upon deposit).*
 
 ## Table of Contents
 
