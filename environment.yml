@@ -1,0 +1,18 @@
+name: dor-md
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.10
+  - numpy>=1.24
+  - scipy>=1.10
+  - pandas>=2.0
+  - matplotlib>=3.7
+  - seaborn>=0.12
+  - mdanalysis>=2.5
+  - mdtraj>=1.9
+  - deeptime>=0.4.4
+  - pip
+  - pip:
+      - gmx-mmpbsa>=1.6.0
