@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 cff-version: 1.2.0
 message: "If you use this software, analysis scripts, or parameters, please cite it as below."
 title: "Delta Opioid Receptor (DOR) Dynamics with Mitragynine, 7-Hydroxymitragynine and (−)-TAN-67 under Ethanol Co-solvent Exposure"
@@ -21,4 +22,29 @@ preferred-citation:
       given-names: "John"
   title: "Delta Opioid Receptor (DOR) Dynamics with Mitragynine, 7-Hydroxymitragynine and (−)-TAN-67 under Ethanol Co-solvent Exposure"
   journal: "Journal of Chemical Information and Modeling"
+=======
+cff-version: 1.2.0
+message: "If you use this software, analysis scripts, or parameters, please cite it as below."
+title: "Delta Opioid Receptor (DOR) Dynamics with Mitragynine, 7-Hydroxymitragynine and (−)-TAN-67 under Ethanol Co-solvent Exposure"
+version: 1.0.0
+date-released: 2026-11-03
+url: "https://github.com/[your-github-username]/[your-repo-name]"
+authors:
+  - family-names: "Doe"
+    given-names: "Jane"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+    affiliation: "Department of Chemistry, University Name"
+  - family-names: "Smith"
+    given-names: "John"
+    affiliation: "Department of Chemistry, University Name"
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Doe"
+      given-names: "Jane"
+    - family-names: "Smith"
+      given-names: "John"
+  title: "Delta Opioid Receptor (DOR) Dynamics with Mitragynine, 7-Hydroxymitragynine and (−)-TAN-67 under Ethanol Co-solvent Exposure"
+  journal: "Journal of Chemical Information and Modeling"
+>>>>>>> 90cb85a8a4f88b83cb05cdeb0cc933c8a29d5d3c
   year: 2026

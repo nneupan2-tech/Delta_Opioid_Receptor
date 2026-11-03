@@ -1,0 +1,34 @@
+cat << 'EOF' > mmpbsa2.in
+&general
+  sys_name="Prot-Membrane-CHARMM36",
+  startframe=750,
+  endframe=1000,
+  interval=2,
+  PBRadii=7,
+  verbose=1,
+  interaction_entropy=1,
+  ie_segment=25
+/
+&pb
+  memopt=1,
+  emem=7.0,
+  indi=2.0,
+  exdi=80.0,
+  mthick=40.0,
+  mctrdz=0.0,
+  poretype=1,
+  radiopt=0,
+  istrng=0.150,
+  fillratio=1.25,
+  inp=2,
+  sasopt=0,
+  solvopt=2,
+  ipb=1,
+  bcopt=10,
+  nfocus=1,
+  linit=1000,
+  eneopt=1,
+  cutfd=7.0,
+  cutnb=99.0
+/
+EOF

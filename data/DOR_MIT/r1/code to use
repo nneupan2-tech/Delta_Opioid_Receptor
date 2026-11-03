@@ -1,0 +1,7 @@
+# 1. Make molecules whole
+gmx trjconv -f mit_md_1000ns.part0001.xtc -s production_run.tpr -pbc whole -b 275000 -e 275000 -o whole_275ns.xtc
+
+# 2. Pull all protein pieces into a single cluster
+gmx trjconv -f whole_275ns.xtc -s production_run.tpr -pbc cluster -o clustered_275ns.xtc
+# 3. Finally, center that cluster in the box
+gmx trjconv -f clustered_275ns.xtc -s production_run.tpr -pbc mol -center -o fixed_275ns.gro
