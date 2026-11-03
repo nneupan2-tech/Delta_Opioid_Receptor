@@ -1,3 +1,4 @@
+Markdown
 # Delta Opioid Receptor (DOR) Dynamics with Mitragynine, 7-Hydroxymitragynine and (−)-TAN-67 under Ethanol Co-solvent Exposure
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -149,3 +150,258 @@ gmx trjconv -s topol.tpr -f traj_noPBC.xtc -o traj_centered.xtc -pbc mol -center
 
 # 3. Fit rotational/translational motions to the C-alpha atoms
 gmx trjconv -s topol.tpr -f traj_centered.xtc -o traj_final_fixed.xtc -fit rot+trans
+Conformational & Activation Metrics
+Calculated via analysis/run_conformational.py and standard GROMACS analysis suites:
+
+Global Stability: RMSD (backbone and ligand), RMSF, and radius of gyration (
+R 
+g
+​
+ ).
+
+Hydrogen Bond Networks: Intermolecular ligand-protein hydrogen bonding frequencies and occupancies (gmx hbond).
+
+Receptor Activation Metrics:
+
+TM6 Outward Tilting: Displacement of TM6 relative to the inactive crystal structure (PDB ID: 4N6H).
+
+TM3–TM6 Inter-Helix Distance: Distance between 
+C 
+α
+​
+  atoms of TM3 and TM6 to quantify cytoplasmic intracellular opening.
+
+Micro-switch Motion: Positional displacement of residue D253 / W274 across the trajectories relative to inactive 4N6H.
+
+G-Protein Coupling Stability: Root-mean-square deviation of the C-terminal 
+α5-helix of the 
+Gα 
+i1
+​
+  subunit.
+
+MM/PBSA Free Energy & Decomposition
+Evaluated using the gmx_MMPBSA v1.6+ suite interfaced with AmberTools sander:
+
+Sampled Window: The final 
+250 ns of production MD (frames 750–1000) sampled at a 2-frame interval.
+
+Implicit Solvent / Membrane PB Model:
+
+ΔG 
+bind
+​
+ =ΔE 
+MM
+​
+ +ΔG 
+solv
+​
+ −TΔS≈ΔE 
+vdW
+​
+ +ΔE 
+elec
+​
+ +ΔG 
+PB
+​
+ +ΔG 
+NP
+​
+ 
+Dielectric Constants: Solute 
+ε 
+in
+​
+ =2.0, Aqueous Phase 
+ε 
+out
+​
+ =80.0, Membrane Bilayer 
+ε 
+mem
+​
+ =2.0.
+
+Membrane Parameters: Implicit membrane thickness 
+=35.0  
+A
+˚
+ , ionic strength 
+=0.15 M.
+
+Entropy: Configurational entropy terms (
+TΔS) were omitted due to the high structural homology among compared ligands, approximating relative affinities via binding enthalpy.
+
+Per-Residue Decomposition: Backbone and sidechain per-residue decomposition within a 
+5.0  
+A
+˚
+  sphere of the binding pocket (energetic threshold 
+∣ΔG∣≥0.5 kcal/mol).
+
+TICA & Markov State Modeling (MSM)
+Kinetic transitions and free-energy landscapes were constructed using the deeptime library:
+
+Feature Construction: Concatenated structural order parameters into a 3D feature vector 
+x(t):
+
+TM3–TM6 
+C 
+α
+​
+  inter-helix distance.
+
+Microswitch residue displacement relative to 4N6H.
+
+G-protein C-terminal 
+α5-helix backbone RMSD.
+
+Time-Lagged Independent Component Analysis (TICA):
+
+Applied globally across concatenated replicates with a lag time 
+τ 
+TICA
+​
+ =1.0 ns (10 frames) to resolve slow relaxation modes:
+
+C(0)v 
+i
+​
+ =λ 
+i
+​
+ C(τ)v 
+i
+​
+ 
+Clustering & Discretization: The 2D TICA projection was partitioned into 
+k=100 discrete microstates using regular 
+k-means clustering.
+
+Transition Matrix & Macrostates:
+
+Maximum Likelihood MSMs were estimated at an MSM lag time of 
+τ 
+MSM
+​
+ =1.5 ns (15 frames) enforcing detailed balance.
+
+Perron Cluster Cluster Analysis (PCCA+): Grouped microstates into 3 primary macrostates:
+
+M0: Uncoupled / Inactive-like
+
+M1: Pre-coupled intermediate
+
+M2: Fully coupled active state
+
+Validation:
+
+Implied Timescales (
+t 
+i
+​
+ ): Computed across varying lag times 
+τ to confirm kinetic convergence and memoryless Markovianity.
+
+Chapman–Kolmogorov Test: Evaluated to ensure trajectory dynamics match model propagation:
+
+T(kτ)≈T(τ) 
+k
+ 
+Statistical Analysis & Visualization
+Visualization Tools: Three-dimensional binding modes, membrane orientations, and electrostatic surface potentials were visualized using PyMOL v3.1.8 and Discovery Studio Visualizer 4.5.
+
+Statistical Rigor: Statistical comparisons were conducted across independent simulation replicates (
+N=3 replicates per experimental condition). Pairwise differences between conditions were evaluated using Welch's independent samples unequal-variance 
+t-test.
+
+Repository Structure
+Plaintext
+.
+├── LICENSE                          # MIT open-source code license
+├── CITATION.cff                     # Citation metadata
+├── environment.yml                  # Conda environment configuration
+├── data/                            # System setups and input definitions
+│   ├── DOR_APO/
+│   │   ├── shared/                  # Common topology, parameters, and inputs
+│   │   │   ├── topol.top            # GROMACS topology
+│   │   │   ├── toppar/              # CHARMM36m & CGenFF parameters
+│   │   │   ├── inputs/              # step6.0_minimization to step7_production .mdp
+│   │   │   └── run_gromacs.sh       # Execution wrapper
+│   │   └── replicas/
+│   │       ├── r1/                  # Production logs, seeds, and run outputs
+│   │       ├── r2/
+│   │       └── r3/
+│   ├── DOR_MIT/
+│   ├── DOR_7OH/
+│   ├── DOR_TAN/
+│   ├── DOR_APO_EtOH/
+│   ├── DOR_MIT_EtOH/
+│   ├── DOR_7OH_EtOH/
+│   └── DOR_TAN_EtOH/
+├── analysis/                        # Production analysis workflows
+│   ├── preprocessing.sh             # PBC removal, centering, and alignment
+│   ├── run_conformational.py        # RMSD, RMSF, Rg, and G-protein displacement
+│   ├── measure_d253_displacement.py # Microswitch D253 displacement
+│   ├── mmpbsa_run.sh                # gmx_MMPBSA execution script
+│   ├── mmpbsa.in                    # MMPBSA input parameters
+│   └── run_msm_deeptime.py          # TICA, MSM, PCCA+, and CK-test script
+├── results/                         # Processed time-series and output plots
+│   ├── mmpbsa/                      # Free energy tables and decomposition CSVs
+│   ├── activation_metrics/          # Inter-helix distance and RMSD plots
+│   └── msm/                         # Implied timescales, free energy contours
+└── trajectories/
+    └── MANIFEST.md                  # Zenodo DOIs, SHA-256 checksums, and file sizes
+Data Availability & Reproduction
+1. Environment Setup
+Install dependencies via Conda:
+
+Bash
+conda env create -f environment.yml
+conda activate dor-md
+2. Large File Retrieval
+Because raw trajectories exceed repository storage limits, .xtc, .tpr, and coordinate files are archived on Zenodo:
+
+Bash
+# Retrieve production trajectories and binary files
+bash scripts/download_zenodo_data.sh
+
+# Verify download integrity
+sha256sum -c trajectories/SHA256SUMS.txt
+3. Running Analysis Workflows
+To reproduce conformational and activation metrics across replicas:
+
+Bash
+# Execute conformational and activation metrics for DOR_7OH
+python analysis/run_conformational.py --system DOR_7OH --replicas r1 r2 r3
+
+# Execute MM/PBSA binding free energy calculation
+bash analysis/mmpbsa_run.sh DOR_7OH
+
+# Run TICA and Markov State Modeling
+python analysis/run_msm_deeptime.py --lag_tica 10 --lag_msm 15
+Citation & License
+Citation
+If you utilize this workflow, topologies, or simulation trajectories in your research, please cite:
+
+Code snippet
+@article{dor_ethanol_dynamics_2026,
+  author    = {[TODO: Authors]},
+  title     = {[TODO: Full paper title]},
+  journal   = {J. Chem. Inf. Model.},
+  year      = {2026},
+  doi       = {[TODO: 10.1021/acs.jcim.XXXXXXX]}
+}
+License
+Code and Workflows (analysis/, data/**/*.sh, scripts/): Released under the MIT License.
+
+Data, Topologies, and Processed Trajectories (data/, results/, and Zenodo records): Distributed under the Creative Commons Attribution 4.0 International License (CC BY 4.0).
+
+Contact
+Primary Investigator: [TODO: Name] ([TODO: Email])
+
+Laboratory / Institution: [TODO: Research Group, University / Institute]
+
+ORCID: [TODO: XXXX-XXXX-XXXX-XXXX]
