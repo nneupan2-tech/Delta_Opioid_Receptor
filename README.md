@@ -105,21 +105,7 @@ All eight systems were executed across three independent replicates (`r1`, `r2`,
 | `DOR_TAN_EtOH` | (−)-TAN-67 | **Yes** | $3 \times 1.0\text{ }\mu\text{s}$ | $3.0\text{ }\mu\text{s}$ |
 | **Total** | | | **24 trajectories** | **$24.0\text{ }\mu\text{s}$** |
 
-### Velocity Random Seeds
-The exact pseudorandom seeds extracted from each replica's `.mdp` run records are listed below:
-
-| System ID | Replicate 1 (`r1`) | Replicate 2 (`r2`) | Replicate 3 (`r3`) |
-| :--- | :--- | :--- | :--- |
-| `DOR_APO` | *[TODO: seed]* | *[TODO: seed]* | *[TODO: seed]* |
-| `DOR_MIT` | *[TODO: seed]* | *[TODO: seed]* | *[TODO: seed]* |
-| `DOR_7OH` | *[TODO: seed]* | *[TODO: seed]* | *[TODO: seed]* |
-| `DOR_TAN` | *[TODO: seed]* | *[TODO: seed]* | *[TODO: seed]* |
-| `DOR_APO_EtOH` | *[TODO: seed]* | *[TODO: seed]* | *[TODO: seed]* |
-| `DOR_MIT_EtOH` | *[TODO: seed]* | *[TODO: seed]* | *[TODO: seed]* |
-| `DOR_7OH_EtOH` | *[TODO: seed]* | *[TODO: seed]* | *[TODO: seed]* |
-| `DOR_TAN_EtOH` | *[TODO: seed]* | *[TODO: seed]* | *[TODO: seed]* |
-
----
+Initial atomic velocities for replicas r1, r2, and r3 were independently assigned from a Maxwell–Boltzmann distribution at 303.15 K using pseudorandom generation (gen-vel = yes, gen-seed = -1) in GROMACS to ensure statistically independent trajectories.
 
 ## Molecular Dynamics Protocol
 
