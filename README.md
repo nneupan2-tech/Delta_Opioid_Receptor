@@ -53,7 +53,7 @@ Each condition was simulated in a complex, heterogeneous lipid bilayer in both t
 | :--- | :--- | :--- |
 | **Code & MDPs** | This repository | Simulation parameter files (`.mdp`), analysis wrappers, Python scripts |
 | **Topologies** | `data/<system>/shared/` | System coordinates, `.top`, `.itp`, and parameter definitions |
-| **Raw Trajectories** | Zenodo ([DOI: 10.5281/zenodo.XXXXXXX](https://doi.org/10.5281/zenodo.XXXXXXX)) | Production `.xtc`, `.tpr`, `.gro`, and checkpoint files |
+| **Raw Trajectories** | Zenodo (10.5281/zenodo.23955575.) | Production `.xtc`, `.tpr`, `.gro`, and checkpoint files |
 | **Manuscript** | JCIM ([DOI: 10.1021/acs.jcim.XXXXXXX](https://doi.org/10.1021/acs.jcim.XXXXXXX)) | Peer-reviewed publication and supplementary dataset |
 
 ---
