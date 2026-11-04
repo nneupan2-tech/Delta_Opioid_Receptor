@@ -282,7 +282,7 @@ python analysis/run_conformational.py --system DOR_7OH --replicas r1 r2 r3
 bash analysis/mmpbsa_run.sh DOR_7OH
 
 # Run TICA and Markov State Modeling
-python analysis/run_msm_deeptime.py --lag_tica 10 --lag_msm 15
+python analysis/msm.py --lag_tica 10 --lag_msm 15
 
 ---
 
