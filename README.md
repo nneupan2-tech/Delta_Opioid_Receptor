@@ -149,7 +149,6 @@ All simulations were run on **GROMACS 2025.2** accelerated via CUDA 12.4.
 ### Trajectory Preprocessing
 Raw trajectory files were processed to remove periodic boundary jumps, center the macromolecular complex, and fit rotational/translational frames to the starting structure:
 
-```bash
 # 1. Cluster intact molecules across periodic boundaries
 gmx trjconv -s topol.tpr -f traj_comp.xtc -o traj_noPBC.xtc -pbc nojump
 
@@ -158,7 +157,6 @@ gmx trjconv -s topol.tpr -f traj_noPBC.xtc -o traj_centered.xtc -pbc mol -center
 
 # 3. Fit rotational and translational motions to receptor C-alpha atoms
 gmx trjconv -s topol.tpr -f traj_centered.xtc -o traj_final_fixed.xtc -fit rot+trans
-```
 
 ---
 
