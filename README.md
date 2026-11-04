@@ -269,26 +269,12 @@ Kinetic transitions and free-energy landscapes were constructed using the `deept
 
 ## Data Availability & Reproduction
 
-### 1. Environment Setup
-Install dependencies via Conda:
-```bash
-conda env create -f environment.yml
-conda activate dor-md
-```
-
-### 2. Large File Retrieval
-Because raw trajectories exceed repository storage limits, `.xtc`, `.tpr`, and coordinate files are archived on Zenodo:
-```bash
 # Retrieve production trajectories and binary files
 bash scripts/download_zenodo_data.sh
 
 # Verify download integrity
 sha256sum -c trajectories/SHA256SUMS.txt
-```
 
-### 3. Running Analysis Workflows
-To reproduce conformational and activation metrics across replicas:
-```bash
 # Execute conformational and activation metrics for DOR_7OH
 python analysis/run_conformational.py --system DOR_7OH --replicas r1 r2 r3
 
@@ -297,7 +283,6 @@ bash analysis/mmpbsa_run.sh DOR_7OH
 
 # Run TICA and Markov State Modeling
 python analysis/run_msm_deeptime.py --lag_tica 10 --lag_msm 15
-```
 
 ---
 
