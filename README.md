@@ -89,21 +89,17 @@ Each condition was simulated in a complex, heterogeneous lipid bilayer in both t
 
 ---
 
-## Simulation Matrix
-
-All eight systems were executed across three independent replicates (`r1`, `r2`, `r3`) using distinct pseudorandom initial velocity seeds (`gen-seed = -1`).
-
-| System ID | Ligand | $0.5\%\text{ v/v}$ Ethanol | Replicas $\times$ Length | Sampling |
+| System ID | Ligand | 0.5% (v/v) EtOH | Replicas × Length | Cumulative Sampling |
 | :--- | :--- | :---: | :---: | :---: |
-| `DOR_APO` | None (Apo) | No | $3 \times 1.0\text{ }\mu\text{s}$ | $3.0\text{ }\mu\text{s}$ |
-| `DOR_MIT` | (−)-Mitragynine | No | $3 \times 1.0\text{ }\mu\text{s}$ | $3.0\text{ }\mu\text{s}$ |
-| `DOR_7OH` | 7-Hydroxymitragynine | No | $3 \times 1.0\text{ }\mu\text{s}$ | $3.0\text{ }\mu\text{s}$ |
-| `DOR_TAN` | (−)-TAN-67 | No | $3 \times 1.0\text{ }\mu\text{s}$ | $3.0\text{ }\mu\text{s}$ |
-| `DOR_APO_EtOH` | None (Apo) | **Yes** | $3 \times 1.0\text{ }\mu\text{s}$ | $3.0\text{ }\mu\text{s}$ |
-| `DOR_MIT_EtOH` | (−)-Mitragynine | **Yes** | $3 \times 1.0\text{ }\mu\text{s}$ | $3.0\text{ }\mu\text{s}$ |
-| `DOR_7OH_EtOH` | 7-Hydroxymitragynine | **Yes** | $3 \times 1.0\text{ }\mu\text{s}$ | $3.0\text{ }\mu\text{s}$ |
-| `DOR_TAN_EtOH` | (−)-TAN-67 | **Yes** | $3 \times 1.0\text{ }\mu\text{s}$ | $3.0\text{ }\mu\text{s}$ |
-| **Total** | | | **24 trajectories** | **$24.0\text{ }\mu\text{s}$** |
+| **DOR_APO** | None (Apo) | No | 3 × 1.0 μs | 3.0 μs |
+| **DOR_MIT** | (−)-Mitragynine | No | 3 × 1.0 μs | 3.0 μs |
+| **DOR_7OH** | 7-Hydroxymitragynine | No | 3 × 1.0 μs | 3.0 μs |
+| **DOR_TAN** | (−)-TAN-67 | No | 3 × 1.0 μs | 3.0 μs |
+| **DOR_APO_EtOH** | None (Apo) | Yes | 3 × 1.0 μs | 3.0 μs |
+| **DOR_MIT_EtOH** | (−)-Mitragynine | Yes | 3 × 1.0 μs | 3.0 μs |
+| **DOR_7OH_EtOH** | 7-Hydroxymitragynine | Yes | 3 × 1.0 μs | 3.0 μs |
+| **DOR_TAN_EtOH** | (−)-TAN-67 | Yes | 3 × 1.0 μs | 3.0 μs |
+| **Total** | | | **24 trajectories** | **24.0 μs** |
 
 ### Velocity Random Seeds
 
