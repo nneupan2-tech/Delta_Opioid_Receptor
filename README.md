@@ -305,6 +305,6 @@ If you utilize this workflow, topologies, or simulation trajectories in your res
 * **Data, Topologies, and Processed Trajectories** (`data/`, `results/`, and Zenodo records): Distributed under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
 
 ### Contact
-* **Primary Investigator:** [TODO: Name] ([TODO: Email])
-* **Laboratory / Institution:** [TODO: Research Group, University / Institute]
-* **ORCID:** [TODO: XXXX-XXXX-XXXX-XXXX]
+* **Primary Investigator:** Joydip Das 
+* **Laboratory / Institution:** Dr Das Lab, University of Houston
+* **ORCID:**  https://orcid.org/0000-0003-1540-5804
